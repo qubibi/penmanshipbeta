@@ -67,8 +67,8 @@ class Motionpen {
 		if (qb.fxrndm() < 0.02) this.ytgt += qb.rndm(-111, 111);
 		if (qb.fxrndm() < 0.059) this.xynynspd1 = qb.rndm(0.01, 0.13);
 		if (qb.fxrndm() < 0.059) this.yynynspd1 = qb.rndm(0.01, 0.13);
-		if (qb.fxrndm() < 0.059) this.xynynspd2 = qb.rndm(0.3, 0.94);
-		if (qb.fxrndm() < 0.059) this.yynynspd2 = qb.rndm(0.3, 0.94);
+		if (qb.fxrndm() < 0.059) this.xynynspd2 = qb.rndm(0.3, 0.92);
+		if (qb.fxrndm() < 0.059) this.yynynspd2 = qb.rndm(0.3, 0.92);
 
 
 		// circle
