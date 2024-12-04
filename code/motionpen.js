@@ -105,7 +105,10 @@ class Motionpen {
 		
 		this.x += this.xynyn = (this.xynyn + (this.enxtgt + this.xtgt - this.x) * (this.xynynspd1*_yukkuri)) * (this.xynynspd2*_yukkuri);
 		this.y += this.yynyn = (this.yynyn + (this.enytgt + this.ytgt - this.y) * (this.yynynspd1*_yukkuri)) * (this.yynynspd2*_yukkuri);
-		this.xre = (this.x*1.07)*cc_inout + (600*(1-cc_inout))
+
+		// let _cc_inoutre = qb.mppng_cu(cc_inout, 0, 0.5, 1.0,  0, 0.5, 1.0, true, -0.5)
+		let _cc_inoutre = qb.mppng(cc_inout, 0, 1.0, 0, 1.0, true, -2.1)
+		this.xre = (this.x*1.07)*_cc_inoutre + (550*(1-_cc_inoutre))
 		this.yre = this.y * 1.07
       //   this.y = 100
       //   this.x = 0 + Math.sin(Date.now() * 0.001) * 500-800;
