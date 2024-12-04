@@ -92,8 +92,8 @@ class Motionpen {
 					this.ytgt *= 0.95
 				}
 			} else if (pr_centertype == 1) {		
-				if (this.x <= -266 || this.x >= 311 || this.y <= -266 || this.y >= 311) {
-					if (qb.fxrndm() < 0.25) {
+				if (this.x <= -311 || this.x >= 266 || this.y <= -266 || this.y >= 311) {
+					if (qb.fxrndm() < 0.3) {
 						this.xtgt *= 0.925
 						this.ytgt *= 0.925
 					}
@@ -106,7 +106,7 @@ class Motionpen {
 		this.x += this.xynyn = (this.xynyn + (this.enxtgt + this.xtgt - this.x) * (this.xynynspd1*_yukkuri)) * (this.xynynspd2*_yukkuri);
 		this.y += this.yynyn = (this.yynyn + (this.enytgt + this.ytgt - this.y) * (this.yynynspd1*_yukkuri)) * (this.yynynspd2*_yukkuri);
 		this.xre = (this.x*1.07)*cc_inout + (600*(1-cc_inout))
-		this.yre = this.y * 1.0
+		this.yre = this.y * 1.07
       //   this.y = 100
       //   this.x = 0 + Math.sin(Date.now() * 0.001) * 500-800;
 		this.xsabn = this.xre - this.prexre;
