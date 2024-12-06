@@ -2,7 +2,7 @@
 	constructor() {
 		super()
 		this.multiPoints = [
-			{ x: 320, y: 10, ctr2x: 60, ctr2y: 0 },
+			{ x: 310, y: 10, ctr2x: 60, ctr2y: 0 },
 			{ x: 380, y: -230, ctr1x: 0, ctr1y: 0, ctr2x: 0, ctr2y: 20 },
 			{ x: 200, y: -240, ctr1x: 0, ctr1y: 20, ctr2x: 10, ctr2y: 20 },
 			{ x: 130, y: -150, ctr1x: 0, ctr1y: 0, ctr2x: -30, ctr2y: 90 },

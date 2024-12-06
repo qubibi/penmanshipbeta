@@ -4,8 +4,8 @@
 		this.multiPoints = [
 			{ x: 950, y: 0, ctr1x: 0, ctr1y: 0, ctr2x: 0, ctr2y: 0 },
 			{ x: 830, y: 300, ctr1x: 0, ctr1y: 0, ctr2x: -400, ctr2y: 0 },
-			{ x: 80, y: 110, ctr1x: 200, ctr1y: 50, ctr2x: -70, ctr2y: -30 },
-			{ x: 0, y: 0, ctr1x: 60, ctr1y: 90, ctr2x: -30, ctr2y: -20 },
+			{ x: 90, y: 110, ctr1x: 200, ctr1y: 50, ctr2x: -70, ctr2y: -30 },
+			{ x: 0, y: 0, ctr1x: 70, ctr1y: 90, ctr2x: -30, ctr2y: -20 },
 			{ x: 15, y: -100, ctr1x: -20, ctr1y: 0, ctr2x: 20, ctr2y: -50 },
 			{ x: 180, y: -60, ctr1x: 0, ctr1y: -20, ctr2x: 0, ctr2y: 0 },
 			{ x: 410, y: -60, ctr1x: 0, ctr1y: 50, ctr2x: 0, ctr2y: 0 }
