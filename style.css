@@ -11,6 +11,7 @@ body {
    align-items: center;
    min-height: 100dvh;
    padding: 34px;
+   background-color: #fff;
 }
 
 .canvas-paper {
@@ -21,7 +22,7 @@ body {
    display: flex;
    justify-content: center;
    align-items: center;
-   
+   background-color: #fff;   
 }
 
 .canvas-container {
@@ -41,6 +42,7 @@ canvas {
    width: 100% !important;
    height: 100% !important;
    border: 1px solid #000;
+
 }
 #redoverlay {
 position: fixed;
@@ -50,4 +52,13 @@ width: 100%;
 height: 100%;
 background-color: #fff;
 z-index: 9999;
+}
+#blackcover {
+   background-color: #fff;
+   height: 100dvh;
+   width: 100dvw;
+   position: fixed;
+   z-index: 9999;
+   mix-blend-mode:difference
+   
 }
