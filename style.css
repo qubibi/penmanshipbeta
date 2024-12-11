@@ -54,7 +54,7 @@ background-color: #fff;
 z-index: 9999;
 }
 #blackcover {
-   background-color: #444;
+   background-color: #000;
    height: 100dvh;
    width: 100dvw;
    position: fixed;
