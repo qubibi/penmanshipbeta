@@ -1,4 +1,4 @@
-class G_hitoyubi  extends Shaperoot {
+ class G_hitoyubi  extends Shaperoot {
 	constructor() {
 		super()
 		this.multiPoints = [
@@ -12,7 +12,7 @@ class G_hitoyubi  extends Shaperoot {
 			{ x: 130, y: -400, ctr1x: -30, ctr1y: 0, ctr2x: 30, ctr2y: -30 },
 			{ x: 520, y: -380, ctr1x: 0, ctr1y: 0, ctr2x: 50, ctr2y: 0 },
 			{ x: 980, y: -70, ctr1x: 0, ctr1y: 0, ctr2x: 0, ctr2y: 0 },
-			{ x: 900, y: 180, ctr1x: 0, ctr1y: 0, ctr2x: 0, ctr2y: 0 }
+			{ x: 900, y: 230, ctr1x: 0, ctr1y: 0, ctr2x: 0, ctr2y: 0 }
 		];
 		this.multiSegments = [7,7,7,7,7,7,7,7,7,7];
 		this.inishape = qvert.beje(this.multiPoints, this.multiSegments);
@@ -50,7 +50,7 @@ getValue(i, center, range = 20, maxSlow = 16) {
 			const point = this.inishape[i];
 			const transformed = this.applyTransform(point[0]+this.addrndmx[i], point[1]+this.addrndm[i]);
 			// this.shape.push(transformed);
-			const speed1 = this.getValue(i, 35, 10, 3); 
+			const speed1 = this.getValue(i, 36, 31, 3); 
 			this.shape[i][0] += (transformed[0] - this.shape[i][0]) / speed1;
 			this.shape[i][1] += (transformed[1] - this.shape[i][1]) / speed1;
 
@@ -70,29 +70,23 @@ getValue(i, center, range = 20, maxSlow = 16) {
 		let _upy = qb.mppng(motionpen.updownvmag, -1, 0, -70, 0, false, 0);
 		let _upr = qb.mppng(motionpen.updownvmag, -1, 0, 0.07, 0, false, 0);
 
-		// グローバルなスケール係数を適用
-		const scaleFactor = window.globalScaleFactor || 1.0;
-		const verticalOffset = window.globalVerticalOffset || 0;
+
+
 
 		let _r = qb.mppng(motionpen.mpmagy, -1, 1, 0.2, 0, true, 0.0);
 		this.setRotation(_r+_upr+_r2);
 		let _scx = qb.mppng(motionpen.mpmagy, -1, 1, 0.85, 1.1, true, 0.0);
 
-		// スケール係数を適用
-		this.setScale((_scx+_scx2) * scaleFactor, scaleFactor);
+		this.setScale(_scx+_scx2, 1);
 		let _addx = qb.mppng(motionpen.mpmagy, -1, 1, 60, 0, true, 0.0);
 		let _addy = qb.mppng(motionpen.mpmagy, -1, 1, 50, 0, true, 0.0);
 
-		// 位置の調整値にもスケール係数を適用
-		const baseOffsetX = 120;
-		const baseOffsetY = -138;
-		
-		// 位置にもスケール係数と垂直オフセットを適用
-		this.setTranslate(
-			motionpen.xre + (baseOffsetX + _addx + _addx2) * scaleFactor + _upx, 
-			motionpen.yre + (baseOffsetY + _addy) * scaleFactor + _upy + verticalOffset
-		);
-		
+
+		// let _scx = qb.mppng(motionpen.mpmagx, -1, 1, 0.9, 1.1, true, 0.0);
+		// this.setScale(_scx, 1);
+
+
+		this.setTranslate(motionpen.xre+120+_addx+_addx2+_upx, motionpen.yre-150+_addy+_upy);
 		this.updateShape();
 	}
 }

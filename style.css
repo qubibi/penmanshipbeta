@@ -3,6 +3,22 @@ html, body {
    padding: 0;
    height: 100dvh;
    box-sizing: border-box;
+   overflow: hidden; /* オーバーフローを隠す */
+   -webkit-touch-callout: none; /* iOS Safariでの長押しメニュー表示を防止 */
+   -webkit-user-select: none;   /* テキスト選択を防止 */
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   -webkit-tap-highlight-color: rgba(0,0,0,0); /* タップ時のハイライトを消す */
+   touch-action: none; /* タッチアクションを無効化 */
+}
+
+@font-face {
+   font-family: 'IBM Plex Mono';
+   src: url('./libcore/ibm-plex-mono-cyrillic-500-normal.woff2') format('woff2');
+   font-weight: 500;
+   font-style: normal;
 }
 
 body {
@@ -10,30 +26,38 @@ body {
    justify-content: center;
    align-items: center;
    min-height: 100dvh;
-   padding: 34px;
-   background-color: #fff;
+   padding: 0; /* パディングを0に変更 */
+   background-color: #000;
+   position: fixed; /* スクロールを防止 */
+   width: 100%;
 }
 
 .canvas-paper {
    position: absolute;
    z-index: 1;
-   width: min(calc(100vw - 78px), calc(100vh - 78px));
-   aspect-ratio: 1/1;
+   width: 100vw; /* ウィンドウの幅いっぱいに */
+   height: 100vh; /* ウィンドウの高さいっぱいに */
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color: #fff;   
+   background-color: #dc9cef;
+   left: 0;
+   top: 0;
+   touch-action: none; /* タッチアクションを無効化 */
 }
 
 .canvas-container {
    position: absolute;
    z-index: 2;
-   width: min(calc(100vw - 78px), calc(100vh - 78px));
-   aspect-ratio: 1/1;
+   width: 100vw; /* ウィンドウの幅いっぱいに */
+   height: 100vh; /* ウィンドウの高さいっぱいに */
    display: flex;
    justify-content: center;
    align-items: center;
    pointer-events: none;
+   left: 0;
+   top: 0;
+   touch-action: none; /* タッチアクションを無効化 */
 }
 
 canvas {
@@ -41,9 +65,14 @@ canvas {
    image-rendering: crisp-edges;
    width: 100% !important;
    height: 100% !important;
-   border: 1px solid #000;
-
+   border: none; /* 境界線を削除 */
+   touch-action: none; /* タッチアクションを無効化 */
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
 }
+
 #redoverlay {
 position: fixed;
 top: 0;
@@ -53,12 +82,44 @@ height: 100%;
 background-color: #fff;
 z-index: 9999;
 }
-#blackcover {
-   background-color: #444;
+
+#bluecover {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #999;
+   z-index: 10000;
+   cursor: pointer;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   color: #000;
+   font-family: 'IBM Plex Mono', monospace;
+   text-align: center;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.textbox {
+   font-size: 1.15rem; 
+   letter-spacing: 0.05rem;
+   line-height: 1.3;
+   transform: translateY(-10%);
+   -webkit-font-smoothing: none;
+   font-smooth: never;
+   -moz-osx-font-smoothing: grayscale;
+   text-rendering: geometricPrecision;
+}
+
+/* #blackcover {
+   background-color: #fff;
    height: 100dvh;
    width: 100dvw;
    position: fixed;
    z-index: 9999;
    mix-blend-mode:difference
    
-}
+} */

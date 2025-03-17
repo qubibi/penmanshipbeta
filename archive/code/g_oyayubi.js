@@ -1,4 +1,4 @@
-class G_oyayubi  extends Shaperoot {
+ class G_oyayubi  extends Shaperoot {
 	constructor() {
 		super()
 		this.multiPoints = [
@@ -43,7 +43,7 @@ getValue(i, center, range = 20, maxSlow = 16) {
 			const transformed = this.applyTransform(point[0], point[1]+this.addrndm[i]);
 			// this.shape.push(transformed);
 			// this.shape[i] = transformed
-			const speed1 = this.getValue(i, 46, 31, 4); 			
+			const speed1 = this.getValue(i, 46, 31, 3); 			
 			this.shape[i][0] += (transformed[0] - this.shape[i][0]) / speed1;
 			this.shape[i][1] += (transformed[1] - this.shape[i][1]) / speed1;
 			
@@ -64,27 +64,16 @@ getValue(i, center, range = 20, maxSlow = 16) {
 		let _upy = qb.mppng(motionpen.updownvmag, -1, 0, -70, 0, false, 0);
 		let _upr = qb.mppng(motionpen.updownvmag, -1, 0, 0.07, 0, false, 0);
 
-		// グローバルなスケール係数を適用
-		const scaleFactor = window.globalScaleFactor || 1.0;
-		const verticalOffset = window.globalVerticalOffset || 0;
-
 		this.setRotation(_r+_upr+_r2);
 		let _scx = qb.mppng(motionpen.mpmagy, -1, 1, 0.9, 1.1, true, 0.0);
-		// スケール係数を適用
-		this.setScale((_scx+_scx2) * scaleFactor, scaleFactor);
+		this.setScale(_scx+_scx2, 1);
 		let _addx = qb.mppng(motionpen.mpmagy, -1, 1, 40, -0, true, 0.0);
 		let _addy = qb.mppng(motionpen.mpmagy, -1, 1, 50, 0, true, 0.0);
 
-		// 位置の調整値にもスケール係数を適用
-		const baseOffsetX = 120;
-		const baseOffsetY = -138;
-		
-		// 位置にもスケール係数と垂直オフセットを適用
-		this.setTranslate(
-			motionpen.xre + (baseOffsetX + _addx + _addx2) * scaleFactor + _upx, 
-			motionpen.yre + (baseOffsetY + _addy) * scaleFactor + _upy + verticalOffset
-		);
-		
+		// let _scx = qb.mppng(motionpen.mpmagx, -1, 1, 0.9, 1.1, true, 0.0);
+		// this.setScale(_scx, 1);
+
+		this.setTranslate(motionpen.xre+120+_addx+_addx2+_upx, motionpen.yre-150+_addy+_upy);
 		this.updateShape();
 	}
 }

@@ -38,7 +38,7 @@ getValue(i, center, range = 20, maxSlow = 16) {
 			const point = this.inishape[i];
 			const transformed = this.applyTransform(point[0]+this.addrndm[i], point[1]+this.addrndm2[i]);
 			// this.shape.push(transformed);
-			const speed1 = this.getValue(i, 20, 22, 10); 			
+			const speed1 = this.getValue(i, 30, 22, 6); 			
 			this.shape[i][0] += (transformed[0] - this.shape[i][0]) / speed1;
 			this.shape[i][1] += (transformed[1] - this.shape[i][1]) / speed1;
 	
@@ -60,33 +60,22 @@ getValue(i, center, range = 20, maxSlow = 16) {
 		let _r = qb.mppng(motionpen.mpmagy, -1, 1, 0.5, 0.45, true, 0.0);
 
 		let _upx = qb.mppng(motionpen.updownvmag, -1, 0, -20, 0, false, 0);
-		let _upy = qb.mppng(motionpen.updownvmag, -1, 0, -30, 60, false, 0);
-		let _upr = qb.mppng(motionpen.updownvmag, -1, 0, 0.03, -0.04, false, 0);
-
-		// グローバルなスケール係数を適用
-		const scaleFactor = window.globalScaleFactor || 1.0;
-		const verticalOffset = window.globalVerticalOffset || 0;
+		let _upy = qb.mppng(motionpen.updownvmag, -1, 0, -30, 0, false, 0);
+		let _upr = qb.mppng(motionpen.updownvmag, -1, 0, 0.03, 0, false, 0);
 
 		this.setRotation(_r+_upr+_r2);
 		let _scx = qb.mppng(motionpen.mpmagy, -1, 1, 0.9, 1.1, true, 0.0);
-		
-		// スケール係数を適用（X軸とY軸の両方に同じscaleFactorを適用）
-		this.setScale((_scx+_scx2) * scaleFactor, scaleFactor);
-		
+		this.setScale(_scx+_scx2, 1);
 		let _addx = qb.mppng(motionpen.mpmagy, -1, 1, 40, -0, true, 0.0);
 		let _addy = qb.mppng(motionpen.mpmagy, -1, 1, 50, 0, true, 0.0);
-		let _addx3 = qb.mppng(window.windowTatenagaMag, 0, 1, 0, 100, true, 0.0); 
-		let _addy3 = qb.mppng(window.windowTatenagaMag, 0, 1, 0, -30, true, 0.0); 
 
-		// 位置の調整値にもスケール係数を適用
-		const baseOffsetX = -90;
-		const baseOffsetY = -220;
-		
-		// 位置にもスケール係数と垂直オフセットを適用
-		this.setTranslate(
-			motionpen.xre + (baseOffsetX + _addx3 + _addx + _addx2) * scaleFactor + _upx, 
-			motionpen.yre + (baseOffsetY + _addy3 + _addy) * scaleFactor + _upy + verticalOffset
-		);
+
+
+	// 	this.setRotation(_r+_r2+_upr);
+	// 	this.setTranslate(motionpen.x+_upx, motionpen.y+_upy);
+
+		// this.setRotation(_r+_r2+_upr);
+		this.setTranslate(motionpen.xre-90+_addx+_addx2+_upx, motionpen.yre-220+_addy+_upy);
 
 		this.updateShape();
 	}

@@ -1,18 +1,16 @@
 class FillRenderer {
     constructor(gl) {
         this.gl = gl;
-        this.setupShaders();
-        this.setupBuffers();
+        this.vertices = [];
+        this.pixelDensity = 1.0;
+        this.width = gl.canvas.width;
+        this.height = gl.canvas.height;
         
-        // デフォルトのブレンドモードを設定
         this.gl.enable(this.gl.BLEND);
         this.gl.blendFunc(this.gl.SRC_ALPHA, this.gl.ONE_MINUS_SRC_ALPHA);
         
-        // 初期設定
-        this.vertices = [];
-        this.pixelDensity = window.devicePixelRatio || 1;
-        this.width = gl.canvas.width;
-        this.height = gl.canvas.height;
+        this.setupShaders();
+        this.setupBuffers();
     }
 
     setupShaders() {
@@ -62,29 +60,6 @@ class FillRenderer {
     setColor(r, g, b, a) {
         this.gl.useProgram(this.program);
         this.gl.uniform4f(this.locations.color, r, g, b, a);
-    }
-
-    // ブレンドモードを設定するメソッド
-    setBlendMode(mode) {
-        this.gl.enable(this.gl.BLEND);
-        
-        switch(mode) {
-            case 'normal':
-                // 通常のアルファブレンド
-                this.gl.blendFunc(this.gl.SRC_ALPHA, this.gl.ONE_MINUS_SRC_ALPHA);
-                break;
-            case 'multiply':
-                // 乗算ブレンド
-                this.gl.blendFunc(this.gl.DST_COLOR, this.gl.ZERO);
-                break;
-            case 'screen':
-                // スクリーンブレンド
-                this.gl.blendFunc(this.gl.ONE, this.gl.ONE_MINUS_SRC_COLOR);
-                break;
-            default:
-                // デフォルトはアルファブレンド
-                this.gl.blendFunc(this.gl.SRC_ALPHA, this.gl.ONE_MINUS_SRC_ALPHA);
-        }
     }
 
     setPixelDensity(density, width, height) {
