@@ -1,17 +1,18 @@
 html, body {
    margin: 0;
    padding: 0;
-   height: 100dvh;
+   height: 100%;
+   width: 100%;
    box-sizing: border-box;
-   overflow: hidden; /* オーバーフローを隠す */
-   -webkit-touch-callout: none; /* iOS Safariでの長押しメニュー表示を防止 */
-   -webkit-user-select: none;   /* テキスト選択を防止 */
+   overflow: hidden;
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
    -khtml-user-select: none;
    -moz-user-select: none;
    -ms-user-select: none;
    user-select: none;
-   -webkit-tap-highlight-color: rgba(0,0,0,0); /* タップ時のハイライトを消す */
-   touch-action: none; /* タッチアクションを無効化 */
+   -webkit-tap-highlight-color: rgba(0,0,0,0);
+   touch-action: none;
 }
 
 @font-face {
@@ -22,42 +23,40 @@ html, body {
 }
 
 body {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   min-height: 100dvh;
-   padding: 0; /* パディングを0に変更 */
    background-color: #000;
-   position: fixed; /* スクロールを防止 */
+   position: relative;
    width: 100%;
+   height: 100%;
+}
+
+.testtest {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
 }
 
 .canvas-paper {
    position: absolute;
    z-index: 1;
-   width: 100vw; /* ウィンドウの幅いっぱいに */
-   height: 100vh; /* ウィンドウの高さいっぱいに */
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: #dc9cef;
+   width: 100%;
+   height: 100%;
    left: 0;
    top: 0;
-   touch-action: none; /* タッチアクションを無効化 */
+   background-color: #dc9cef;
+   touch-action: none;
 }
 
 .canvas-container {
    position: absolute;
    z-index: 2;
-   width: 100vw; /* ウィンドウの幅いっぱいに */
-   height: 100vh; /* ウィンドウの高さいっぱいに */
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   pointer-events: none;
+   width: 100%;
+   height: 100%;
    left: 0;
    top: 0;
-   touch-action: none; /* タッチアクションを無効化 */
+   pointer-events: none;
+   touch-action: none;
 }
 
 canvas {
@@ -65,8 +64,8 @@ canvas {
    image-rendering: crisp-edges;
    width: 100% !important;
    height: 100% !important;
-   border: none; /* 境界線を削除 */
-   touch-action: none; /* タッチアクションを無効化 */
+   border: none;
+   touch-action: none;
    -webkit-user-select: none;
    -moz-user-select: none;
    -ms-user-select: none;
@@ -74,17 +73,17 @@ canvas {
 }
 
 #redoverlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: #fff;
-z-index: 9999;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #fff;
+   z-index: 9999;
 }
 
 #bluecover {
-   position: fixed;
+   position: absolute;
    top: 0;
    left: 0;
    width: 100%;
@@ -116,10 +115,9 @@ z-index: 9999;
 
 /* #blackcover {
    background-color: #fff;
-   height: 100dvh;
-   width: 100dvw;
+   height: 100%;
+   width: 100%;
    position: fixed;
    z-index: 9999;
-   mix-blend-mode:difference
-   
+   mix-blend-mode: difference;
 } */
