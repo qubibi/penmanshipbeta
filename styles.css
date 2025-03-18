@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 300;
+    padding: 80px;
+    background-color: #fff;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
+}
+
+.container {
+    max-width: 1199px;
+    margin: 0 auto;
+}
+
+header {
+    margin-top: -13px;
+    margin-bottom: 120px;
+}
+
+h1 {
+    font-size: 2.7rem;
+    font-weight: 200;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.works-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 120px;
+    margin: 0 auto;
+}
+
+.work-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.work-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    border: 1px solid #000;
+}
+
+.work-item a:hover img,
+.work-item a:active img,
+.work-item a img.hovered {
+    border: 1px solid #00f;
+}
+
+.work-item p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.work-item p a {
+    color: #000;
+    text-decoration-color: rgba(0, 0, 0, 0.4);
+}
+
+.work-item p a:hover,
+.work-item p a:active {
+    color: #00f;
+    text-decoration-color: rgba(0, 0, 255, 0.5);
+}
+
+/* preview-linkクラスのスタイル */
+.preview-link:hover,
+.preview-link:active,
+.preview-link.hovered {
+    color: #00f !important; /* !importantで他のスタイルを上書き */
+    text-decoration-color: rgba(0, 0, 255, 0.5) !important;
+}
+
+@media (min-width: 768px) {
+    .works-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        padding: 40px;
+    }
+    
+    header {
+        margin-bottom: 60px;
+    }
+    
+    .works-container {
+        gap: 60px;
+    }
+    
+    .work-item img {
+        margin-bottom: 20px;
+    }
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 240px;
+    margin-bottom: 20px;
+}
+
+.logo-image {
+    width: 70px;opacity: 0.8;
+} 
