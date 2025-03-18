@@ -132,7 +132,7 @@ class Hajimari {
 
 		} else {
 			// 横長または正方形の場合は通常サイズ
-			window.globalScaleFactor = (  qb.mppng(windowWidth, 0, 1000, 0.1, 1, true, 0)  )*forMobile_mag;
+			window.globalScaleFactor = (  qb.mppng(windowWidth, 0, 1000, 0.3, 1, true, 0)  )*forMobile_mag;
 			window.windowTatenagaMag = 0
 		}
 		
