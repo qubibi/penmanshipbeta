@@ -177,8 +177,16 @@ class Nyuryoku {
         this.dragX = this.mouseX - this.prevMouseX;
         this.dragY = this.mouseY - this.prevMouseY;
         
-        // 累積移動量を更新
-        this.pressMoveX = this.mouseX - this.pressStartX;
+        // 累積移動量を更新（左端制限付き）
+        const newPressMoveX = this.mouseX - this.pressStartX;
+        const leftBoundary = is_mobile ? -100 : -500; // スマホ:-100, PC:-500
+        
+        // 左端制限の適用
+        if (newPressMoveX < leftBoundary) {
+            this.pressMoveX = leftBoundary;
+        } else {
+            this.pressMoveX = newPressMoveX;
+        }
         this.pressMoveY = this.mouseY - this.pressStartY;
         
         // 動いている場合のみdragX2とdragY2を更新
@@ -312,8 +320,16 @@ class Nyuryoku {
             this.dragX = this.mouseX - this.prevMouseX;
             this.dragY = this.mouseY - this.prevMouseY;
             
-            // 累積移動量を更新
-            this.pressMoveX = this.mouseX - this.pressStartX;
+            // 累積移動量を更新（左端制限付き）
+            const newPressMoveX = this.mouseX - this.pressStartX;
+            const leftBoundary = is_mobile ? -100 : -500; // スマホ:-100, PC:-500
+            
+            // 左端制限の適用
+            if (newPressMoveX < leftBoundary) {
+                this.pressMoveX = leftBoundary;
+            } else {
+                this.pressMoveX = newPressMoveX;
+            }
             this.pressMoveY = this.mouseY - this.pressStartY;
             
             // 動いている場合のみdragX2とdragY2を更新
